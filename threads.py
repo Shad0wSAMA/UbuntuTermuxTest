@@ -2,10 +2,12 @@ import threading
 import time
 
 def worker(num):
-    print(f"Thread {num} starting")
-    time.sleep(2)
-    print(f"Thread {num} finished")
+    for(j in range(0,100)):
+        print(f"Thread {num} starting", j)
+        time.sleep(1)
+        print(f"Thread {num} finished", j)
+        time.sleep(1)
 
-for i in range(4):
+for i in range(8):
     t = threading.Thread(target=worker, args=(i,))
     t.start()
